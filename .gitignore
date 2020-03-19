@@ -1,0 +1,11 @@
+/vendor
+/.idea
+
+config/database.php
+config/app.php
+
+Homestead.json
+Homestead.yaml
+
+.env
+.phpunit.result.cache
