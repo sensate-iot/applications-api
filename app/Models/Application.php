@@ -8,9 +8,16 @@ class Application extends Model
 {
     protected $table = "Applications";
     protected $primaryKey = "id";
+    protected $fillable = [
+        'name',
+        'description',
+        'hostname',
+        'path',
+        'protocol'
+    ];
 
-    public function getRoles()
+    public function roles()
     {
-        return $this->hasMany('App\Models\Role', 'application_id');
+        return $this->hasMany(Role::class);
     }
 }

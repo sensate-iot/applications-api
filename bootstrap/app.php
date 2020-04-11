@@ -37,6 +37,8 @@ $app->withEloquent();
 |
 */
 
+$app->bind('App\Repositories\IApplicationInterface', 'App\Repositories\ApplicationRepository');
+
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
