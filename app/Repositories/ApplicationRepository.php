@@ -27,10 +27,7 @@ class ApplicationRepository implements IApplicationInterface
 
     public function findOne(string $name): Model
     {
-        $data = Application::query()->where('name', '=', $name)->first();
-        $data->roles = $data->roles();
-
-        return $data;
+        return Application::query()->where('name', '=', $name)->get()->first();
     }
 
     public function findByRole(string $role, string $name = ''): array
@@ -40,7 +37,7 @@ class ApplicationRepository implements IApplicationInterface
         });
 
         if(!empty($name)) {
-            $data = $data->where('name', '=', $name);
+            $data = $data->where('name', 'LIKE', $name);
         }
 
         return $data->get()->all();
