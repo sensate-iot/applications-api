@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRolesTable extends Migration
+class CreateMenuTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('Roles', function (Blueprint $table) {
+        Schema::create('MenuEntries', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('application_id');
-            $table->string('role', 255);
+            $table->integer('application_id')->index();
+            $table->integer('ranking')->index();
+            $table->string('display_name');
             $table->timestamps();
 
-            $table->unique(['application_id', 'role']);
             $table->foreign('application_id')->references('id')->on('Applications');
         });
     }
@@ -31,6 +31,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Roles');
+        Schema::dropIfExists('MenuEntries');
     }
 }

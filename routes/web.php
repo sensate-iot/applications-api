@@ -21,3 +21,7 @@ Route::get('/', 'StatusController@index');
 Route::get('status', 'StatusController@index');
 
 Route::get('/apps/v1/applications', 'ApplicationsController@index');
+Route::options('/apps/v1/applications', 'ApplicationsController@options');
+
+Route::get('/apps/v1/menus', 'MenusController@index');
+Route::options('/apps/v1/menus', 'MenusController@options');

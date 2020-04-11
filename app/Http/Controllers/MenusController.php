@@ -2,37 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\ApplicationRepository;
+use App\Repositories\MenusRepository;
 
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 use Throwable;
 
-class ApplicationsController extends Controller
+class MenusController extends Controller
 {
     private $service;
 
     public function __construct()
     {
-        $this->service = new ApplicationRepository();
+        $this->service = new MenusRepository();
     }
 
     /**
-     * @param Request $request
      * @return JsonResponse
      */
-    public function index(Request $request)
+    public function index()
     {
         try {
-            $name = $request->query('name', '');
-
-            if(empty($name)) {
-                $data = $this->service->all();
-            } else {
-                $data = $this->service->findOne($name);
-            }
+            $data = $this->service->all();
         } catch(Throwable $e) {
             Log::info('Unable to fetch apps: ' . $e->getMessage());
             $data = ['errorCode' => 0,

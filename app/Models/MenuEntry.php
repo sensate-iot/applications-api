@@ -5,22 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Application extends Model
+class MenuEntry extends Model
 {
-    protected $table = "Applications";
+    protected $table = "MenuEntries";
     protected $primaryKey = "id";
 
-    protected $hidden = [
-        'id'
+    protected $fillable = [
+        'ranking', 'display_name'
     ];
 
-    protected $fillable = [
-        'name',
-        'description',
-        'hostname',
-        'path',
-        'protocol'
+    protected $hidden = [
+        'id', 'application_id'
     ];
+
+    public function application()
+    {
+        return $this->belongsTo(Application::class);
+    }
 
     public function toArray()
     {
