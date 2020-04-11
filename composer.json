@@ -1,7 +1,7 @@
 {
     "name": "laravel/lumen",
-    "description": "The Laravel Lumen Framework.",
-    "keywords": ["framework", "laravel", "lumen"],
+    "description": "Sensate IoT application routing API.",
+    "keywords": ["iot", "Sensate", "Sensate IoT"],
     "license": "MIT",
     "type": "project",
     "require": {
