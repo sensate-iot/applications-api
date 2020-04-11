@@ -18,23 +18,6 @@ class ApplicationsController extends Controller
     }
 
     /**
-     * @param string $name
-     * @return JsonResponse
-     */
-    public function find(string $name)
-    {
-        try {
-            $data = $this->service->findOne($name);
-        } catch(Throwable $e) {
-            Log::info('Unable to fetch apps: ' . $e->getMessage());
-            $data = ['errorCode' => 0,
-                'message' => "Unable to fetch apps."];
-        }
-
-        return response()->json($data, 200);
-    }
-
-    /**
      * @param Request $request
      * @return JsonResponse
      */

@@ -21,4 +21,3 @@ Route::get('/', 'StatusController@index');
 Route::get('status', 'StatusController@index');
 
 Route::get('/apps/v1/applications', 'ApplicationsController@index');
-Route::get('/apps/v1/applications/{name}', 'ApplicationsController@find');
