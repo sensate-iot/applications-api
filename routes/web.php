@@ -17,8 +17,11 @@ use Illuminate\Support\Facades\Route;
     return $router->app->version();
 });*/
 
-Route::get('/', 'StatusController@index');
-Route::get('status', 'StatusController@index');
+Route::get('/apps/v1', 'StatusController@index');
+Route::get('/apps/v1', 'StatusController@options');
+
+Route::get('/apps/v1/status', 'StatusController@index');
+Route::get('/apps/v1/status', 'StatusController@options');
 
 Route::get('/apps/v1/applications', 'ApplicationsController@index');
 Route::options('/apps/v1/applications', 'ApplicationsController@options');

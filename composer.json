@@ -1,5 +1,5 @@
 {
-    "name": "laravel/lumen",
+    "name": "sensate-iot/applications-api",
     "description": "Sensate IoT application routing API.",
     "keywords": ["iot", "Sensate", "Sensate IoT"],
     "license": "MIT",
@@ -7,7 +7,6 @@
     "require": {
         "php": "^7.2.5",
         "ext-pdo": "*",
-        "grohiro/laravel-camelcase-json": "^2.0",
         "laravel/lumen-framework": "^7.0"
     },
     "require-dev": {
