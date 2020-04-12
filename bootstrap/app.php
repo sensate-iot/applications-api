@@ -75,7 +75,8 @@ $app->configure('database');
 */
 
  $app->middleware([
-     App\Http\Middleware\CorsHandler::class
+     App\Http\Middleware\CorsHandler::class,
+     App\Http\Middleware\LogHandler::class
  ]);
 
 // $app->routeMiddleware([
