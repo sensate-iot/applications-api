@@ -7,9 +7,9 @@ use App\Models\MenuEntry;
 
 class MenusRepository
 {
-    public function all()
+    public function all(): array
     {
-        $data = MenuEntry::all()->sortBy('ranking');
+        $data = MenuEntry::query()->orderBy('ranking')->get();
 
         foreach ($data as $entry) {
             $entry->app = $entry->application()->first();
