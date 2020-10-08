@@ -2,8 +2,9 @@
     "name": "sensate-iot/applications-api",
     "description": "Sensate IoT application routing API.",
     "keywords": ["iot", "Sensate", "Sensate IoT"],
-    "license": "MIT",
+    "license": "Apache-2.0",
     "type": "project",
+    "version": "1.0.0",
     "require": {
         "php": "^7.2.5",
         "ext-pdo": "*",
