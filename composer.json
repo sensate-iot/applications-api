@@ -4,7 +4,7 @@
     "keywords": ["iot", "Sensate", "Sensate IoT"],
     "license": "Apache-2.0",
     "type": "project",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "require": {
         "php": "^7.2.5",
         "ext-pdo": "*",
