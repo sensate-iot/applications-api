@@ -23,14 +23,17 @@ class MenusController extends Controller
      */
     public function index()
     {
+        $status = 200;
+
         try {
             $data = $this->service->all();
         } catch(Throwable $e) {
-            Log::info('Unable to fetch apps: ' . $e->getMessage());
+            Log::warning('Unable to fetch apps: ' . $e->getMessage());
             $data = ['errorCode' => 0,
                 'message' => "Unable to fetch apps."];
+            $status = 500;
         }
 
-        return response()->json($data, 200);
+        return response()->json($data, $status);
     }
 }

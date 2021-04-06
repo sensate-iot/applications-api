@@ -25,6 +25,8 @@ class ApplicationsController extends Controller
      */
     public function index(Request $request)
     {
+        $status = 200;
+
         try {
             $name = $request->query('name', '');
 
@@ -34,11 +36,12 @@ class ApplicationsController extends Controller
                 $data = $this->service->findOne($name);
             }
         } catch(Throwable $e) {
-            Log::info('Unable to fetch apps: ' . $e->getMessage());
+            Log::warning('Unable to fetch apps: ' . $e->getMessage());
             $data = ['errorCode' => 0,
                 'message' => "Unable to fetch apps."];
+            $status = 500;
         }
 
-        return response()->json($data, 200);
+        return response()->json($data, $status);
     }
 }
